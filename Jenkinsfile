@@ -17,6 +17,7 @@ pipeline {
                     sh 'docker rm web-server || true'
                     // Corre el nuevo contenedor en el puerto 80 del HOST
                     sh 'docker run -d --name web-server -p 80:80 mi-web:latest'
+                    sh 'docker ps'
                 }
             }
         }
