@@ -4,210 +4,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experiencia Montaña Premium</title>
+    <title>Hola Mundo - Montañas Dinámicas</title>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Configuración de scroll suave */
         html {
             scroll-behavior: smooth;
+            /* */
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #05070a;
-            overflow-x: hidden;
-        }
-
-        /* Barra de Navegación */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo {
-            color: white;
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
+            background-color: #0b0d17;
         }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: 0.3s;
-            opacity: 0.8;
-        }
-
-        .nav-links a:hover {
-            opacity: 1;
-        }
-
-        /* Hero Section con Parallax */
-        .hero {
-            position: relative;
+        .hero-section {
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+
+            /* Efecto Parallax: La imagen se queda fija mientras el contenido sube */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
                 url('https://images.unsplash.com');
             background-attachment: fixed;
-            background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
-        /* Canvas para Partículas */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-        }
-
-        .content {
-            position: relative;
+        .container {
             z-index: 2;
-            text-align: center;
-            animation: fadeIn 2s ease-out;
+            animation: fadeInUp 1.5s ease-out;
         }
 
         .texto-elegante {
-            font-family: 'Playfair Display', serif;
             color: white;
-            font-size: clamp(3rem, 12vw, 7rem);
-            margin-bottom: 20px;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            font-size: clamp(3rem, 10vw, 6rem);
+            /* Responsivo automático */
+            letter-spacing: 8px;
+            text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6);
+            margin-bottom: 30px;
         }
 
+        /* Botón de navegación elegante (Ghost Button) */
         .btn-explorar {
-            padding: 15px 45px;
+            display: inline-block;
+            padding: 15px 40px;
             color: white;
-            border: 1px solid white;
             text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.8rem;
-            transition: 0.5s;
-            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+            /* Transición suave */
+            background: transparent;
+            backdrop-filter: blur(3px);
         }
 
         .btn-explorar:hover {
-            background: white;
+            background-color: white;
             color: black;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
         }
 
-        @keyframes fadeIn {
+        /* Sección de relleno para probar el movimiento al hacer scroll */
+        .contenido-extra {
+            height: 100vh;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: scale(0.9);
+                transform: translateY(50px);
             }
 
             to {
                 opacity: 1;
-                transform: scale(1);
+                transform: translateY(0);
             }
-        }
-
-        .section-2 {
-            height: 100vh;
-            background: white;
-            padding: 100px;
-            text-align: center;
         }
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <a href="#" class="logo">MNTN</a>
-        <div class="nav-links">
-            <a href="#">Inicio</a>
-            <a href="#">Galería</a>
-            <a href="#">Contacto</a>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <canvas id="canvas"></canvas>
-        <div class="content">
+    <div class="hero-section">
+        <div class="container">
             <h1 class="texto-elegante">Hola mundo!</h1>
-            <a href="#mas" class="btn-explorar">Descubrir</a>
+            <a href="#proximo" class="btn-explorar">Explorar más</a>
         </div>
-    </section>
+    </div>
 
-    <section id="mas" class="section-2">
-        <h2 style="font-family: 'Playfair Display'; font-size: 3rem;">El horizonte te espera.</h2>
-    </section>
+    <div id="proximo" class="contenido-extra">
+        <h2 style="color: #333; font-size: 2rem;">Has navegado suavemente hasta aquí.</h2>
+    </div>
 
-    <script>
-        // Lógica simple de partículas
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 + 0.1;
-            }
-            update() {
-                this.y += this.speedY;
-                if (this.y > canvas.height) this.y = 0;
-            }
-            draw() {
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function init() {
-            for (let i = 0; i < 100; i++) particles.push(new Particle());
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(animate);
-        }
-
-        init();
-        animate();
-    </script>
 </body>
 
 </html>
