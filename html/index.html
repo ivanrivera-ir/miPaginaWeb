@@ -3,13 +3,73 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Hola del Servidor!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo - Montañas</title>
+    <!-- Importación de fuente elegante desde Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-section {
+            /* Imagen de alta calidad de Unsplash */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('https://images.unsplash.com');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .texto-elegante {
+            color: white;
+            font-size: 5rem;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Animación suave de entrada */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ajuste para móviles */
+        @media (max-width: 600px) {
+            .texto-elegante {
+                font-size: 3rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>
-        Hola mundo 6 !!
-    </h1>
+
+    <div class="hero-section">
+        <h1 class="texto-elegante">Hola mundo!</h1>
+    </div>
+
 </body>
 
 </html>
