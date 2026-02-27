@@ -15,10 +15,10 @@ if (-not $gitStatus) {
 }
 
 # 2. Solicitar el mensaje de commit
-$commitMessage = Read-Host "[?] Introduce el mensaje del commit"
+$commitMessage = Read-Host "[?] Introduce el mensaje del commit (deja en blanco para usar la fecha/hora actual)"
 if ([string]::IsNullOrWhiteSpace($commitMessage)) {
-    Write-Host "El mensaje no puede estar vacio. Operacion cancelada." -ForegroundColor Red
-    exit
+    $commitMessage = "Actualizacion automatica $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+    Write-Host "[i] Usando mensaje por defecto: $commitMessage" -ForegroundColor Yellow
 }
 
 # 3. Mostrar menu para elegir el destino
