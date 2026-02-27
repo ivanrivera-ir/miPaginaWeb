@@ -52,7 +52,7 @@ function Push-Repo {
     param ( [string]$RemoteName )
     
     # Comprobar si el remote existe configurado en Git
-    $remoteExists = git remote | Where-Object { $_ -match "^$RemoteName\s" }
+    $remoteExists = git remote | Where-Object { $_ -eq $RemoteName }
     if (-not $remoteExists) {
         Write-Host "[ERROR] No se encontro un origen / remote llamado '$RemoteName'." -ForegroundColor Red
         Write-Host "   Puedes anadirlo con este comando:" -ForegroundColor Gray
