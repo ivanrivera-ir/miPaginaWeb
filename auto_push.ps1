@@ -60,6 +60,14 @@ function Push-Repo {
         return
     }
 
+    Write-Host "[!] Obteniendo cambios de $RemoteName (rama: $currentBranch)..." -ForegroundColor Cyan
+    git pull $RemoteName $currentBranch --rebase
+
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "[ERROR] Hubo un conflicto o error al hacer pull de $RemoteName (`$LASTEXITCODE). Resuelvelo e intenta nuevamente." -ForegroundColor Red
+        return
+    }
+
     Write-Host "[!] Subiendo a $RemoteName (rama: $currentBranch)..." -ForegroundColor Cyan
     git push $RemoteName $currentBranch
     
